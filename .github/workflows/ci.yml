@@ -19,13 +19,13 @@ jobs:
     - name: Setup .NET Core SDK
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '8.0.x'  # Укажите версию .NET Core SDK, которую вы используете
+        dotnet-version: '5.0.x'
 
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore SimpleCalculator/SimpleCalculator.csproj
 
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build SimpleCalculator/SimpleCalculator.csproj --configuration Release --no-restore
 
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test SimpleCalculator/SimpleCalculator.csproj --no-build --verbosity normal
